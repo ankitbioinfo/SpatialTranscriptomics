@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: log-reg25
+spec:
+  template:
+    spec:
+      priorityClassName: research-med
+      containers:
+        - name: custom-container-name
+          image: ls6-stud-registry.informatik.uni-wuerzburg.de/extgruenlab3/linux
+          imagePullPolicy: "Always"
+          env:
+            - name: kallisto
+              value: "hello"
+            - name: bustools # example usage of env variable
+              value: "/mydir"
+          resources:
+            limits:
+              cpu: "2"
+              memory: "64Gi"
+            requests:
+              cpu: "2"
+              memory: "64Gi"
+          command: ["python","/home/ext/gruenlab3/neighbor_analysis/ScienceJeffrey2018/4expected/Run_LogisticRegressionForSpatial_important_pairs.py"]
+          volumeMounts:
+            - mountPath: /home/ext/gruenlab3/neighbor_analysis/ScienceJeffrey2018
+              name: localdir       
+      imagePullSecrets:
+        - name: lsx-registry
+      restartPolicy: "Never"
+      volumes:
+        - name: localdir
+          cephfs:
+            monitors:
+              - 132.187.14.16,132.187.14.17,132.187.14.19,132.187.14.20  # Not important for you, just copy along
+            user: extgruenlab3  # <namespace>
+            path: "/home/ext/gruenlab3/neighbor_analysis/ScienceJeffrey2018" # The path you want to mount
+            secretRef: # The name of the secret for auth. Is always "ceph-secret"
+              name: ceph-secret
