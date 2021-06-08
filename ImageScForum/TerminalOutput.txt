@@ -1,0 +1,53 @@
+python final_blob_based_find.py
+RNA and nuclei channel <starfish.ImageStack (r: 2, c: 4, z: 1, y: 1648, x: 1082)>
+nuclei reference <starfish.ImageStack (r: 1, c: 1, z: 1, y: 1648, x: 1082)>
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 8/8 [00:00<00:00, 115.65it/s]
+nuclei from every rounds <starfish.ImageStack (r: 2, c: 1, z: 1, y: 1648, x: 1082)>
+RNA imgs <starfish.ImageStack (r: 2, c: 3, z: 1, y: 1648, x: 1082)>
+20
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 165.47it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 56.62it/s]
+tile indices: {<Axes.ROUND: 'r'>: 0}
+translation: y=0.0, x=0.0, rotation: 0.0, scale: 1.0
+tile indices: {<Axes.ROUND: 'r'>: 1}
+translation: y=-18.18, x=86.606, rotation: 0.0, scale: 1.0
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 306.09it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:00<00:00, 206.57it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 54.64it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 266.66it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 238.83it/s]
+genes and counts 8 8
+Col1a1 	 8
+Dlk1 	 7
+Kitl 	 2
+Ly6a 	 9
+Mki67 	 6
+Pdgfra 	 5
+Sgk3 	 9
+Tert 	 12
+Traceback (most recent call last):
+  File "/Users/agrawal/miniconda/envs/starfish/lib/python3.7/site-packages/xarray/core/dataarray.py", line 687, in _getitem_coord
+    var = self._coords[key]
+KeyError: 'spot_id'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "final_blob_based_find.py", line 264, in <module>
+    labeled_filtered,mat = make_expression_matrix(masks, decoded)
+  File "final_blob_based_find.py", line 251, in make_expression_matrix
+    labeled = al.run(masks, decoded[decoded.target != 'nan'])
+  File "/Users/agrawal/miniconda/envs/starfish/lib/python3.7/site-packages/starfish/core/pipeline/algorithmbase.py", line 23, in helper
+    result = func(*args, **kwargs)
+  File "/Users/agrawal/miniconda/envs/starfish/lib/python3.7/site-packages/starfish/core/spots/AssignTargets/label.py", line 96, in run
+    return self._assign(masks, decoded_intensity_table, in_place=in_place)
+  File "/Users/agrawal/miniconda/envs/starfish/lib/python3.7/site-packages/starfish/core/spots/AssignTargets/label.py", line 63, in _assign
+    spot_ids = in_bbox[Features.SPOT_ID][in_mask.values]
+  File "/Users/agrawal/miniconda/envs/starfish/lib/python3.7/site-packages/xarray/core/dataarray.py", line 698, in __getitem__
+    return self._getitem_coord(key)
+  File "/Users/agrawal/miniconda/envs/starfish/lib/python3.7/site-packages/xarray/core/dataarray.py", line 691, in _getitem_coord
+    self._coords, key, self._level_coords, dim_sizes
+  File "/Users/agrawal/miniconda/envs/starfish/lib/python3.7/site-packages/xarray/core/dataset.py", line 171, in _get_virtual_variable
+    ref_var = variables[ref_name]
+KeyError: 'spot_id'
+(starfish) agrawal@mac1118 ImageScForum %
