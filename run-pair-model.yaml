@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: log-reg25
+  name: log-reg1
 spec:
   template:
     spec:
@@ -18,11 +18,11 @@ spec:
           resources:
             limits:
               cpu: "2"
-              memory: "64Gi"
+              memory: "4Gi"
             requests:
               cpu: "2"
-              memory: "64Gi"
-          command: ["python","/home/ext/gruenlab3/neighbor_analysis/ScienceJeffrey2018/4expected/Run_LogisticRegressionForSpatial_important_pairs.py"]
+              memory: "4Gi"
+          command: ["python","-u", "/home/ext/gruenlab3/neighbor_analysis/ScienceJeffrey2018/4expected/Run_LogisticRegressionForSpatial_important_pairs_standard.py"]
           volumeMounts:
             - mountPath: /home/ext/gruenlab3/neighbor_analysis/ScienceJeffrey2018
               name: localdir       
