@@ -12,3 +12,6 @@ python37 format_seqFISH_Andy.py --input-dir fov1 --output-dir Andy_output --code
 
 (3) Run codebook and remove the comma from the output files and then copy into inside folder. 
 
+
+Interesting read 
+https://medium.com/apprentice-journal/evaluating-multi-class-classifiers-12b2946e755b
