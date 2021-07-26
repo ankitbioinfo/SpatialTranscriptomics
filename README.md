@@ -15,3 +15,12 @@ python37 format_seqFISH_Andy.py --input-dir fov1 --output-dir Andy_output --code
 
 Interesting read 
 https://medium.com/apprentice-journal/evaluating-multi-class-classifiers-12b2946e755b
+
+(4) Scan py 
+https://scanpy-tutorials.readthedocs.io/en/latest/spatial/basic-analysis.html
+
+https://nbisweden.github.io/workshop-scRNAseq/labs/compiled/scanpy/scanpy_04_clustering.html
+
+https://scanpy-tutorials.readthedocs.io/en/latest/pbmc3k.html
+
+https://scanpy-tutorials.readthedocs.io/en/latest/plotting/core.html
