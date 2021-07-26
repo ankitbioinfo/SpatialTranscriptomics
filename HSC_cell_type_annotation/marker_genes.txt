@@ -1,0 +1,154 @@
+1 	 Neutrophil_Camp high (Bone-Marrow)
+['Chil3' 'Camp' 'Ngp' 'Cdca3' 'S100a8' 'S100a9' 'Fcnb' 'Lcn2' 'Ltf'
+ 'Hmgn2' 'Wfdc21' 'Cebpe' 'Ube2c' 'Cybb' 'Serpinb1a' 'Anxa1' 'Hmgb2'
+ 'H2afz' 'Cd177' 'Orm1' 'C3' 'Lta4h' 'Pclaf' 'Tuba1c' 'Tmsb4x' 'Rflnb'
+ 'Arhgdib' 'Spc25' 'Cyba' 'Hsd11b1' 'Nusap1' 'Id2' 'Tuba4a' 'Birc5' 'Cd9'
+ 'Itgb2l' 'Tuba1b' 'Cdkn2d' 'Clec4a2' 'Pglyrp1' 'Ncf4' 'I830127L07Rik'
+ 'Ffar2' 'Smc4' 'Calm1' 'Aprt' 'Mgst2' 'Adpgk' 'Cdca8' 'Cpne3']
+
+
+2 	 Neutrophil_Mmp8 high (Bone-Marrow)
+['Mmp8' 'Gmfg' 'Cfp' 'Ncf2' 'Pilrb2' 'Gda' 'Lcn2' 'Ifitm6' 'Ltf' 'S100a9'
+ 'Wfdc21' 'Ngp' 'Anxa1' 'Mmp9' 'S100a8' 'Ly6g' 'I830127L07Rik' 'S100a11'
+ 'Cd177' 'Lyz2' 'Retnlg' 'Lrg1' 'Lgals3' 'AA467197' 'Fcer1g' 'Chil1'
+ 'Pglyrp1' 'Slfn4' 'Slpi' 'Cybb' 'S100a6' 'Camp' 'Plbd1' 'Ceacam10'
+ 'Prdx5' 'Fpr2' 'Cd52' 'G0s2' 'Capg' 'Mcemp1' 'Aldh2' 'Mgst1' 'Adpgk'
+ 'Pirb' 'Prr13' 'Fpr1' 'Itgb2l' 'Itgam' 'Lilr4b' 'Vasp']
+
+
+3 	 Myeloid cell (Bone-Marrow)
+['Retnlg' 'S100a6' 'Glipr1' 'Limd2' 'Cd24a' 'Pnrc1' 'S100a11' 'Il1b'
+ 'Mmp8' 'Ccl6' 'Slpi' 'Mmp9' 'Msrb1' 'Clec4d' 'Junb' 'Grina' 'Cxcr2'
+ 'Dusp1' 'Prr13' 'Lilr4b' 'Cxcl2' 'Fpr1' 'H2-Q10' 'Lilrb4a' 'Csf3r' 'Fth1'
+ 'Tyrobp' 'Il1f9' 'Ccr1' 'Slfn4' 'Anxa2' 'Slfn1' 'Fos' 'Lcp1' 'Osm'
+ 'Clec4e' 'Mxd1' 'G0s2' 'Lsp1' 'Cd52' 'Taldo1' 'Fcer1g' 'Slc16a3' 'Hp'
+ 'Cyp4f18' 'Zfp36' 'Lrg1' 'Adam8' 'Ypel3' 'Stk17b']
+
+
+4 	 Neutrophil_Elane high (Bone-Marrow)
+['Elane' 'Mpo' 'Prtn3' 'Ctsg' 'Srgn' 'Nkg7' 'Ms4a3' 'Gstm1' 'Cst7'
+ 'Prss57' 'Plac8' 'Rgcc' 'Mt1' 'Calr' 'Cd63' 'Gpx1' 'Rpl13' 'Mgl2' 'Ly6c2'
+ 'P4hb' 'Vat1' 'Dmkn' 'Cmtm7' 'Clec12a' 'Krtcap2' 'Rpl32' 'Rps8' 'Ssr4'
+ 'Pdia6' 'Dbi' 'Ramp1' 'Rps3a1' 'Sdf2l1' 'Rps2' 'Etfb' 'Igfbp4' 'mt-Cytb'
+ 'Ap3s1' 'Rps17' 'Rpl11' 'Rps27a' 'Rps12' 'Hspa5' 'Rpl10' 'Rpl14' 'Rpl18a'
+ 'Rpl18' 'Tmed3' 'Rpsa' 'Rpl3']
+
+
+5 	 Macrophage_Ms4a6c high (Bone-Marrow)
+['Ms4a6c' 'Samm50' 'Ndufb11' 'Mtdh' 'Lman2' 'Rheb' 'Mrpl30' 'Ccnb2'
+ 'Ptbp1' 'Ywhae' 'Eif3e' 'Fkbp3' 'Mrpl36' 'Crip1' 'S100a10' 'S100a4'
+ 'F13a1' 'Lgals1' 'Ly6e' 'Ifi30' 'Psap' 'Ly6c2' 'Tmsb10' 'Cst3' 'Ccr2'
+ 'Fn1' 'Ass1' 'Irf8' 'Emb' 'Gpx1' 'Ctss' 'C1galt1c1' 'Ctsc' 'Psma7' 'Npc2'
+ 'Glipr1' 'Tifab' 'Vim' 'Mpeg1' 'Prdx4' 'Lamp1' 'Lgals3' 'Pld4' 'Prdx1'
+ 'H2-DMa' 'Tgfbi' 'Anxa5' 'Erp29' 'Itgb7' 'Ms4a4c']
+
+
+6 	 Neutrophil_Ltf high (Bone-Marrow)
+['Vasp' 'G6pdx' 'Ngp' 'Ltf' 'Lcn2' 'Camp' 'Chil3' 'Lyz2' 'Wfdc21' 'S100a8'
+ 'Anxa1' 'S100a9' 'Ifitm6' 'Cybb' 'St3gal5' 'AA467197' 'I830127L07Rik'
+ 'Cd177' 'Prdx5' 'Chil1' 'Plbd1' 'Ly6g' 'Pglyrp1' 'Ltb4r1' 'Zmpste24'
+ 'Cyba' 'Itgb2l' 'Aldh2' 'Orm1' 'Cebpe' 'Fcer1g' 'Serpinb1a' 'Ffar2'
+ 'Itgam' 'Arhgdib' 'Adpgk' 'Arrb2' 'Hp' 'Lrg1' 'Lta4h' 'Ncf1' 'Fpr2'
+ 'Alox5ap' 'Rflnb' 'Mcemp1' 'Rogdi' 'Cotl1' 'Gsn' 'Clec4a2' 'Agpat2']
+
+
+7 	 Pre B cell (Bone-Marrow)
+['Vpreb3' 'Rpa2' 'Tceal9' 'Srrt' 'Psmc4' 'Cmc2' 'Pdcd5' '2410006H16Rik'
+ 'Psmb6' 'Rpl7a' 'Eef1d' 'Dok3' 'Mcm6' '2010107E04Rik' 'Minos1' 'Psmb3'
+ 'Anp32b' 'S100a10' 'Slc25a3' 'Naca' 'Rps27a' 'Atp5j2' 'Chchd2' 'Cox5a'
+ 'Mki67' 'Gm2000' 'Pin1' 'Ighm' 'Myl4' 'Ebf1' 'Cd79a' 'Mzb1' 'Igll1'
+ 'Chchd10' 'Vpreb1' 'Ptprcap' 'Blnk' 'Cd79b' 'Pou2af1' 'Pafah1b3' 'Fcrla'
+ 'Cd19' 'Rsph1' 'Ptma' 'Cd72' 'Spib' 'Lrmp' 'Tifa' 'Smarca4' 'Arl5c']
+
+
+8 	 Hematopoietic stem progenitor cell (Bone-Marrow)
+['Anapc5' 'Sumo3' 'U2af1' 'Idh3g' 'Btf3' 'Gm8186' 'Eef1d' 'Ndufa7'
+ 'Arl6ip4' 'Cox8a' 'Psmg4' 'Pdap1' 'Vcp' 'Psmd1' 'Eif3c' 'Mrpl34' 'Atp5c1'
+ 'Cd34' 'Rpl13' 'Rpl18a' 'Mif' 'Npm1' 'Rps26' 'Rps3a1' 'H2afy' 'Rpl32'
+ 'Rpl14' 'Rpl3' 'Rpl11' 'Rps5' 'Adgrg1' 'Tmem176b' 'Rps19' 'Rps2' 'Rps15a'
+ 'Gas5' 'Rplp0' 'Rps24' 'Rps3' 'Rps14' 'Rpsa' 'Rps17' 'Rpl4' 'Rpl18'
+ 'Rplp1' 'Rps9' 'Rps11' 'Rps8' 'Rpl12' 'Eef1g']
+
+
+9 	 Erythroid cell (Bone-Marrow)
+['Hba-a1' 'Hemgn' 'Alas2' 'Ermap' 'Smim1' 'Cpox' 'Nxpe2' 'Isg20' 'Slc38a5'
+ 'Tspo2' 'Mt2' 'Pole4' 'Ces2g' 'Gstm5' 'Sphk1' 'Rbbp4' 'Glrx5' 'Slc4a1'
+ 'Lmna' 'Hebp1' 'Cldn13' 'Hbb-bt' 'Klf1' 'Car2' 'Hba-a2' 'Car1' 'Alad'
+ 'Aqp1' 'Hmbs' 'Blvrb' 'Rhd' 'Ctse' 'Gypa' 'Prdx2' 'Tmem14c' 'Aldh1a1'
+ 'Fam132a' 'Hbb-bs' 'Tspan33' 'Mgst3' 'Atpif1' 'Fech' 'Cela1' 'Ubac1'
+ 'Urod' 'Gata1' 'Fth1' 'Ift140' 'Rec114' 'Kel']
+
+
+10 	 Neutrophil_Fcnb high (Bone-Marrow)
+['Hexb' 'Hvcn1' 'Ube2c' 'Asf1b' 'Fcnb' 'Camp' 'Hmgn2' 'Serpinb1a' 'Chil3'
+ 'S100a8' 'Tmsb4x' 'Cd63' 'Elane' 'S100a9' 'Ngp' 'Ffar2' 'Mogat2' 'Cebpe'
+ 'Ms4a3' 'Lta4h' 'Rgcc' 'Hsd11b1' 'Tmem216' 'Tuba8' 'Prtn3' 'Clec12a'
+ 'Wfdc21' 'Pglyrp1' 'Clec4a2' 'Mgst2' 'H2afz' 'C3' 'Nkg7' 'Itm2b'
+ 'Arhgdib' 'Tuba4a' 'Id2' 'Prss57' 'Cfl1' 'F630028O10Rik' 'Rrm2' 'Orm1'
+ 'Cyba' 'Prdx5' 'Gca' 'Agpat2' 'Aprt' 'Rogdi' 'Scp2' 'Tmbim6']
+
+
+11 	 B cell_Igkc high (Bone-Marrow)
+['Iglc2' 'Cd74' 'Igkc' 'Iglc3' 'Ms4a1' 'Fcmr' 'Ly6d' 'H2-Eb1' 'Cd79a'
+ 'H2-Aa' 'Ighd' 'Cd79b' 'Ighm' 'H2-Ab1' 'Cd19' 'Iglv1' 'Mzb1' 'Ly6a'
+ 'Iglc1' 'Spib' 'Fcrla' 'Ptprcap' 'Ltb' 'Vpreb3' 'Cnp' 'Jchain' 'Shisa5'
+ 'Siglecg' 'Chchd10' 'Dusp2' 'H2-K1' 'Klf2' 'Rps27' 'Ctss' 'Igha' 'Cd52'
+ 'Cd37' 'Ly6e' 'Tmem123' 'Ifi27l2a' 'Pkig' 'Dnajc7' 'Btg1' 'H2-DMa'
+ 'Nfkbia' 'Hvcn1' 'Serp1' 'Ddx5' 'Unc93b1' 'Hmgn1']
+
+
+12 	 Macrophage_S100a4 high (Bone-Marrow)
+['Serp1' 'Atox1' 'Glud1' 'Ctss' 'S100a4' 'Clec4a3' 'Wfdc17' 'Ifitm3'
+ 'Clec4a1' 'Lyz2' 'Fn1' 'Ccr2' 'Ms4a4c' 'Psap' 'Ms4a6c' 'Atf3' 'Gngt2'
+ 'Ifi204' 'Apoe' 'Crip1' 'Ccl6' 'Ccl9' 'Cd68' 'Ctsc' 'Ifi27l2a' 'Cst3'
+ 'Tmsb10' 'Mpeg1' 'Ms4a6b' 'Ly6e' 'Smpdl3a' 'Pld4' 'Csf1r' 'F13a1' 'Irf5'
+ 'Ccl3' 'Tgfbi' 'Lgals3' 'Tyrobp' 'Ctsa' 'Ifi30' 'Samhd1' 'Clec7a' 'Npc2'
+ 'Zfp36' 'Evi2a' 'Fcer1g' 'Irf7' 'Dusp1' 'Ctsb']
+
+
+13 	 T cell_Ms4a4b high (Bone-Marrow)
+['Ms4a4b' 'Trbc2' 'Rps21' 'Rps19' 'Rpl11' 'Rpl9' 'Ptpn18' 'Thy1' 'Trac'
+ 'Gimap4' 'Ccl5' 'Cd3g' 'Gimap3' 'Ctsw' 'Trbc1' 'AW112010' 'Lck' 'Klrd1'
+ 'Il2rb' 'Cd3d' 'Lat' 'Gimap5' 'Gimap6' 'Cd2' 'H2-Q7' 'Ltb' 'Shisa5'
+ 'Rps27' 'H2-K1' 'Tmsb10' 'Ptprcap' 'Ms4a6b' 'Nkg7' 'Il2rg' 'Ccnd2'
+ 'Rps15a' 'B2m' datetime.datetime(2001, 9, 1, 0, 0) 'H2-Q6' 'Rps27rt'
+ 'Hcst' 'S100a10' 'Rps29' 'Jak1' 'Rps24' 'Rps15' 'Rpl30' 'Id2' 'Rplp1'
+ 'Rpl13']
+
+
+14 	 Plasmacytoid dendritic cell_Siglech high (Bone-Marrow)
+['Siglech' 'Plac8' 'Cst3' 'Rps27' 'Cd7' 'Kctd12' 'Cox6a2' 'Bst2' 'Ccr9'
+ 'Ctsl' 'Irf8' 'Ly6d' 'Klk1' 'Tcf4' 'Pltp' 'Rnase6' 'Tsc22d1' 'Rpgrip1'
+ 'H2-Aa' 'Mpeg1' 'Cd74' 'Upb1' 'Ly6a' 'Ctsb' 'Lgals1' 'Psap' 'Klra17'
+ 'Spib' 'Ppfia4' 'Ctss' 'Pld4' 'H2-Ab1' 'Ly6e' 'Atp1b1' 'Iglc3' 'Grn'
+ 'H2-Eb1' 'Dnajc7' 'Jaml' 'Smim5' 'Lair1' 'Tspan13' 'Ctsh' 'Tmem229b'
+ 'Ptms' 'H2-Q7' 'Ccl4' 'Cyth4' 'Tfrc' 'Fth1']
+
+
+15 	 Basophil (Bone-Marrow)
+['Ubb' 'Cpa3' 'Fcer1a' 'Ms4a2' 'Osm' 'Cd200r3' 'Alox15' 'Gata2' 'Csrp3'
+ 'Ccl4' 'Ccl3' 'Mcpt8' 'Cyp11a1' 'Rnase12' 'Prss34' 'Ier3' 'Itga2b' 'Rgs1'
+ 'Stx3' 'Ifitm1' 'Cd63' 'Srgn' 'Ly6e' 'Lat2' 'Mns1' 'Ctsg' 'Cd69' 'Plgrkt'
+ 'Apoe' 'H3f3b' 'Calr' 'Runx1' 'Plac8' 'Itm2c' 'Hist1h1c' 'Nfkbia'
+ 'Hist1h2bc' 'Hsp90b1' 'Itgb7' 'Man2b1' 'Jun' 'Crip1' 'Cbfa2t3' 'Spn'
+ 'Ier2' 'Hdc' 'Lgals1' 'Ptms' 'Ccl9' 'Cst7']
+
+
+16 	 Macrophage cell_H2-Eb1 high (Bone-Marrow)
+['Fcna' 'C1qc' 'C1qa' 'Cd5l' 'Serpinb6a' 'Igf1' 'Slc48a1' 'Itm2c' 'Axl'
+ 'C1qb' 'Itgad' 'Mrc1' 'Sdc3' 'Ccr3' 'Hmox1' 'Maf' 'Spic' 'Selenop' 'Pld3'
+ 'Adgre1' 'Lgmn' 'Prnp' 'Hpgd' 'Vcam1' 'Apoe' 'Il18' 'Slc40a1' 'Slfn5'
+ 'Trf' 'Lpl' 'Cd68' 'Fcgrt' 'Aif1' 'Glul' 'Marcks' 'Acp2' 'Ctsb'
+ 'Lgals3bp' 'Ctsd' 'Tbxas1' 'AW112010' 'Clec4a1' 'Sirpa' 'Ctss' 'Lipa'
+ 'Fth1' 'Ftl1' 'Clec4a3' 'Csf1r' 'Ear2']
+
+
+17 	 Neutrophil_Ctsg high (Bone-Marrow)
+['Rpl14-ps1' 'Rplp2' 'Ppib' 'Dda1' 'Coasy' 'Btf3' 'Glmp' 'Ybx1' 'Eif3h'
+ 'Cnbp' 'Psma2' 'Rps23-ps1' 'Scarb1' 'Ddb1' 'Gm14303' 'Srek1ip1' 'Cab39l'
+ 'Eftud2' 'Plppr3' 'Scap' 'Usmg5' 'Vdac3' 'Kctd1' 'Rapgef3' 'Fkbp11'
+ 'Sdf2l1' 'Paox' 'Vat1' 'Ccl27a' 'Mlh1' 'Erp44' 'Mfsd13a' 'Mgmt' 'Nup54'
+ 'Srm' 'G6pc3' 'Hsdl2' 'Dph6' 'Alas1' 'Npl' 'Pno1' 'Ubqln4' 'Impdh1'
+ 'Plpp5' 'Tmem53' 'Polr2l' 'Adgrl4' 'Tmem237' 'Cst7' 'Idh2']
+
+
