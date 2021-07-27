@@ -30,3 +30,7 @@ https://scanpy-tutorials.readthedocs.io/en/latest/plotting/core.html
 http://bis.zju.edu.cn/MCA/gallery.html?tissue=Bone-Marrow
 
 (6) https://www.proteinatlas.org/ENSG00000072952-MRVI1/celltype/liver
+
+
+(7) There is considerable functional overlap and interplay between megakaryocytes and endothelial cells. The ultimate function of platelets is to repair disrupted endothelium and “plug” up minute holes. This occurs via adhesion to exposed subendothelium structures, activation, aggregation, cell flattening, and activation of angiogenesis. Both platelets and endothelial cells utilize prostaglandin signaling pathways, and modulate hemostasis and thrombosis. Both megakaryocytes and endothelial cells synthesize and secrete von Willebrand factor (vWF), which is involved in linking platelets to exposed basement membrane, and P-selectin, which acts as a key adhesion molecule during hemostasis. Activated platelets also secrete a large number of vasoactive and angiogenic modulatory factors.
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2741141/
