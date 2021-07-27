@@ -28,3 +28,5 @@ https://scanpy-tutorials.readthedocs.io/en/latest/plotting/core.html
 
 (5) Mouse cell atlas 
 http://bis.zju.edu.cn/MCA/gallery.html?tissue=Bone-Marrow
+
+(6) https://www.proteinatlas.org/ENSG00000072952-MRVI1/celltype/liver
