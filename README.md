@@ -37,3 +37,6 @@ https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2741141/
 
 (8) Single cell RNA sequencing of human liver reveals
 distinct intrahepatic macrophage populations
+
+(9) check the package version 
+packageVersion("RaceID")
