@@ -18,7 +18,8 @@ python37 format_seqFISH_Andy.py --input-dir fov1 --output-dir Andy_output --code
     Select first half region and it gives [0,0,960, 1648]</br>
     Equivalent starfish command is y_slice = slice(0, 1648), x_first = slice(0, 960)</br>
     Select second half regions and it gives [1080 0 976 1648] [xmin ymin xmax ymax]<br/>
-    Equivalent starfish command is x_second = slice(1080, 2056)
+    Equivalent starfish command is x_second = slice(1080, 2056)<br/>
+    xmin and xmax is the top left corner of the selected region 
 
 
 (*) Interesting read 
