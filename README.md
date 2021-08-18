@@ -13,9 +13,9 @@ python37 format_seqFISH_Andy.py --input-dir fov1 --output-dir Andy_output --code
 (3) Run codebook and remove the comma from the output files and then copy into inside folder. 
 
 (4) How to select the regions in image. 
-    Suppose the dimension of the image is 2056 X 1648 
-    open macro record 
-    Select first half region and it gives [0,0,960, 1648]
+    Suppose the dimension of the image is 2056 X 1648\ 
+    open macro record\ 
+    Select first half region and it gives [0,0,960, 1648]\
     Equivalent starfish command is y_slice = slice(0, 1648), x_first = slice(0, 960)
     Select second half regions and it gives [1080 0 976 1648] [xmin ymin xmax ymax]
     Equivalent starfish command is x_second = slice(1080, 2056)
