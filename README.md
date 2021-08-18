@@ -21,7 +21,7 @@ python37 format_seqFISH_Andy.py --input-dir fov1 --output-dir Andy_output --code
     Equivalent starfish command is x_second = slice(1080, 2056)
 
 
-Interesting read 
+(*) Interesting read 
 https://medium.com/apprentice-journal/evaluating-multi-class-classifiers-12b2946e755b
 
 (*) Scan py 
