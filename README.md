@@ -55,4 +55,14 @@ packageVersion("RaceID")
      Type 1 LSEC are CD36hi CD32− CD14− LYVE-1− located in acinar zone 1 of the lobule <br/> 
      Type 2 LSEC are LYVE-1+ CD32hi CD14+ CD54+ CD36mid-lo located in acinar zones 2 and 3 of the lobule <br/> 
      pericyte marker CD146 <br/>
-  p2) 
+  p2) Prominent Receptors of Liver Sinusoidal Endothelial Cells in Liver Homeostasis and Disease <br/>
+      A) Parenchymal cells (60-80%) <br/>
+          
+          
+      B) non-parechymal cells (20-40%) <br/>
+         LSEC (50%). <br/>
+         Kupffer cells (20%) <br/>
+         stellate cells (1%) <br/>
+         lymphocytes (25%) <br/>
+         biliary cells (5%)  <br/>
+
