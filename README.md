@@ -49,3 +49,12 @@ distinct intrahepatic macrophage populations
 
 (*) check the package version 
 packageVersion("RaceID")
+
+(*) Cell type markers of HSC
+  p1) Immunofluorescence identifies distinct subsets of endothelial cells in the human liver
+     Type 1 LSEC are CD36hi CD32− CD14− LYVE-1−
+     Type 2 LSEC are LYVE-1+ CD32hi CD14+ CD54+ CD36mid-lo 
+     located in acinar zone 1 of the lobule
+     located in acinar zones 2 and 3 of the lobule.
+     pericyte marker CD146
+  p2) 
