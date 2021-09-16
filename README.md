@@ -56,7 +56,8 @@ packageVersion("RaceID")
      Type 2 LSEC are LYVE-1+ CD32hi CD14+ CD54+ CD36mid-lo located in acinar zones 2 and 3 of the lobule <br/> 
      pericyte marker CD146 <br/>
   p2) Prominent Receptors of Liver Sinusoidal Endothelial Cells in Liver Homeostasis and Disease <br/>
-     LSECs assist in clearing macromolecular waste (extracellular matrix material and foreign molecules) from the blood and regulate hepatic vascularity. Individual LSEC’s are flat and very small in size, no thicker than 5 μm at the center and 0.3 μm at the periphery. 
+     LSECs assist in clearing macromolecular waste (extracellular matrix material and foreign molecules) from the blood and regulate hepatic vascularity. Individual LSEC’s are flat and very small in size, no thicker than 5 μm at the center and 0.3 μm at the periphery. <br/>
+     LSECs that differentiate them from other endothelial cells is their higher endocytic ability. LSECs only make up about 3% of total liver volume, however, they contribute to about 45% of pinocytic vesicles in the liver
   
   
       A) Parenchymal cells (60-80%) 
