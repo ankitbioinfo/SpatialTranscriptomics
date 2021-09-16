@@ -58,13 +58,13 @@ packageVersion("RaceID")
   p2) Prominent Receptors of Liver Sinusoidal Endothelial Cells in Liver Homeostasis and Disease <br/>
   
   
-      A) Parenchymal cells (60-80%) <br/>
+      A) Parenchymal cells (60-80%) 
           
           
-      B) non-parechymal cells (20-40%) <br/>
-         LSEC (50%). <br/>
-         Kupffer cells (20%) <br/>
-         stellate cells (1%) <br/>
-         lymphocytes (25%) <br/>
-         biliary cells (5%)  <br/>
+      B) non-parechymal cells (20-40%) 
+         LSEC (50%)
+         Kupffer cells (20%) 
+         stellate cells (1%) 
+         lymphocytes (25%) 
+         biliary cells (5%)  
 
