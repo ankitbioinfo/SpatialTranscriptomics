@@ -12,6 +12,7 @@ from sklearn.model_selection import StratifiedShuffleSplit
 #from imblearn.over_sampling import SMOTE, SMOTEN,ADASYN, KMeansSMOTE, SVMSMOTE
 from sklearn.utils import class_weight
 from sklearn.metrics import roc_curve, auc
+from sklearn.model_selection import RepeatedStratifiedKFold
 
 #Metrics
 from sklearn.metrics import cohen_kappa_score
@@ -47,7 +48,7 @@ def plot_multiclass_roc(clf, X_test, y_test, n_classes):
 
 
 def plot_results(maindir,nrow,ncol,nameOfCellType,radius,lambda_c,cmn,coef,classes,CTFeatures,x_test,x_train,predicted_probs,inputFeatures,inputdir,fpr, tpr, roc_auc):
-	filename=str(radius)+'_'+str(lambda_c)
+	filename='R'+str(radius)+'_C'+str(lambda_c)
 	#print(nameOfCellType)
 	fig, ax = plt.subplots(nrow,ncol, figsize=(10, 7))
 	plotaxis=[]
@@ -63,6 +64,7 @@ def plot_results(maindir,nrow,ncol,nameOfCellType,radius,lambda_c,cmn,coef,class
 
 
 	#for i in range(len(classes)):
+	'''
 	for i in range(nrow*ncol):
 		value=plotaxis[i]
 		ax[value[0],value[1]].plot([0, 1], [0, 1], 'k--')
@@ -87,15 +89,16 @@ def plot_results(maindir,nrow,ncol,nameOfCellType,radius,lambda_c,cmn,coef,class
 	#plt.suptitle('Receiver operating characteristic example')
 	plt.tight_layout()
 	plt.savefig(maindir+'ROC_'+filename+'.png')
+	'''
 
 
 	plt.figure(figsize=(8,6))
 	snn.heatmap(cmn,annot=True, fmt='.2f',xticklabels=classes, annot_kws={"size": 5},yticklabels=classes)
 	plt.xlabel('Predicted classes')
 	plt.ylabel('Truth classes')
+	plt.title('R = '+str(radius)+', C='+str(lambda_c))
 	plt.tight_layout()
-    plt.title('R = '+str(radius)+', C='+str(lambda_c))
-	plt.savefig(maindir+'Confusing_matrix_'+filename+'.png')
+	plt.savefig(maindir+'Confusing_matrix_'+filename+'.png',dpi=300)
 
 	plt.figure(figsize=(5,8))
 	#plt.figure()
@@ -107,9 +110,9 @@ def plot_results(maindir,nrow,ncol,nameOfCellType,radius,lambda_c,cmn,coef,class
 
 	plt.ylabel('Features cross terms')
 	plt.xlabel('# of classes (no of cell types)')
-    plt.title('R = '+str(radius)+', C='+str(lambda_c))
+	plt.title('R = '+str(radius)+', C='+str(lambda_c))
 	plt.tight_layout()
-	plt.savefig(maindir+'weight_matrix_'+filename+'.png')
+	plt.savefig(maindir+'weight_matrix_'+filename+'.png',dpi=300)
 
 	plt.figure(figsize=(12,6))
 
@@ -131,6 +134,8 @@ def plot_results(maindir,nrow,ncol,nameOfCellType,radius,lambda_c,cmn,coef,class
 	plt.xlabel('# of classes (no of cell types)')
 	plt.tight_layout(.5)
 	plt.savefig(maindir+'predicted_probability_'+filename+'.png')
+
+	plt.close('all')
 	#print(predicted_probs)
 	#prob=sigmoid( np.dot([y_train, y_test,1], log_reg_model.coef_.T) + log_reg_model.intercept_ )
 	#print(prob)
@@ -216,7 +221,7 @@ for i in range(len(target)):
 '''
 
 
-def model_log_regression(no_of_times_to_run_logistic_regression,neighborhoodClass,target,lambda_c,strategy,BothLinearAndCrossTerms):
+def model_log_regression(K_fold,n_repeats,neighborhoodClass,target,lambda_c,strategy,BothLinearAndCrossTerms):
 	polynomial = PolynomialFeatures(degree = BothLinearAndCrossTerms, interaction_only=True, include_bias=False)
 	#log_reg_model = LogisticRegression(max_iter=500,penalty='l2',class_weight=classweight,solver='newton-cg')
 	#log_reg_model = LogisticRegression(max_iter=500,penalty='elasticnet',l1_ratio=0.5,class_weight=classweight,solver='saga')
@@ -233,7 +238,8 @@ def model_log_regression(no_of_times_to_run_logistic_regression,neighborhoodClas
 	for i in range(15):
 		scorecalc.append([])
 
-	sss = StratifiedShuffleSplit( n_splits=no_of_times_to_run_logistic_regression, test_size=0.25, random_state=0)
+	sss = RepeatedStratifiedKFold(n_splits=K_fold, n_repeats=n_repeats ,random_state=36851234)
+	#sss = StratifiedShuffleSplit( n_splits=no_of_times_to_run_logistic_regression, test_size=0.25, random_state=0)
 	cmn=[]
 	coef=[]
 	for train_index, test_index in sss.split(neighborhoodClass,target):
@@ -343,11 +349,20 @@ def model_log_regression(no_of_times_to_run_logistic_regression,neighborhoodClas
 		coef.append(LR.coef_)
 		cmn.append(confusion_matrix(y_test,y_pred,normalize='true'))
 
+	cmn_std=np.std(np.array(cmn),axis=0)
+	coef_std=np.std(np.array(coef),axis=0)
+	comp_score_std=np.std(np.array(scorecalc),axis=1)
 
 
 	cmn=np.mean(np.array(cmn),axis=0)
 	coef=np.mean(np.array(coef),axis=0)
-	print('training',x_train.shape,'testing',x_test.shape,'coeff',coef.shape)
+	comp_score=np.mean(np.array(scorecalc),axis=1)
+
+	#print('a',comp_score)
+	#print('b',comp_score_std)
+
+
+	print('training',x_train.shape,'testing',x_test.shape,'coeff',coef.shape,'Iteration',len(scorecalc[0]))
 
 
 	#cmn=confusion_matrix(y_test,y_pred,normalize='true')
@@ -387,36 +402,77 @@ def model_log_regression(no_of_times_to_run_logistic_regression,neighborhoodClas
 
 
 
-	return cmn,coef,classes, CTFeatures,x_test,x_train,y_prob ,fpr, tpr, roc_auc, scorecalc
+	return cmn,coef,comp_score,cmn_std,coef_std,comp_score_std,classes, CTFeatures,x_test,x_train,y_prob ,fpr, tpr, roc_auc
 
 
 
-def find_interacting_cell_types(cmn,coef,CTFeatures,nameOfCellType,fw):
+def find_interacting_cell_types(cmn,coef,cmn_std,coef_std,confusion_cutoff,coeff_cutoff,CTFeatures,nameOfCellType,fw,filename):
+
+
+	answer=os.path.isdir(filename)
+	if answer==True:
+		pass
+	else:
+		os.mkdir(filename)
 
 	a=np.diag(cmn)
+	b=np.diag(cmn_std)
 	goodPredictedCellType=np.argsort(-a)
+
 
 	#for i in range(len(goodPredictedCellType)):
 	#	print(i,a[goodPredictedCellType[i]])
 
 	# top 3 cell type in confusion matrix
-	for k in range(3):
-		goodCoefficients=coef[goodPredictedCellType[k]]
-		highestIndex=np.argsort(-abs(goodCoefficients))
-		fw.write('\n'+str(k+1)+ ' Largest predicted cell type and their top 5 coefficients : '+
-				nameOfCellType[goodPredictedCellType[k]]+' ( id = '+str(goodPredictedCellType[k])+',  confusion score = '+str('%0.2f'%a[goodPredictedCellType[k]])+')\n')
-		for i in range(5):
-		#for i in range(len(highestIndex)):
-			l=CTFeatures[highestIndex[i]].split()
-			temp=''
-			for j in range(len(l)):
-				temp+=nameOfCellType[int(l[j][1:])]
-				if j!=(len(l)-1):
-					temp+='--'
-			#print(temp,highestIndex[i],CTFeatures[highestIndex[i]],goodCoefficients[ highestIndex[i]   ])
-			integerName=CTFeatures[highestIndex[i]].replace('x','')
-			fw.write(str(highestIndex[i])+'\t'+str('%0.2f'%goodCoefficients[ highestIndex[i]] ) +'\t'+temp+' ('+ integerName  +')\n')
+	for k in range(len(a)):
+		if a[goodPredictedCellType[k]]>=confusion_cutoff:
+			meanCoefficients=coef[goodPredictedCellType[k]]
+			stdCoefficients=coef_std[goodPredictedCellType[k]]
+			highestIndex=np.argsort(-abs(meanCoefficients))
 
+			n=min(coeff_cutoff,len(highestIndex))
+			coeff_of_CT=[]
+			name_of_the_coeff=[]
+			std_of_coeff=[]
+
+			fw.write('\n'+str(k+1)+ ' Largest predicted cell type and their top 5 coefficients : '+
+					nameOfCellType[goodPredictedCellType[k]]+' ( id = '+str(goodPredictedCellType[k])+',  confusion score = '+str('%0.2f'%a[goodPredictedCellType[k]])+')\n')
+			for i in range(n):
+			#for i in range(len(highestIndex)):
+				l=CTFeatures[highestIndex[i]].split()
+				temp=''
+				for j in range(len(l)):
+					temp+=nameOfCellType[int(l[j][1:])]
+					if j!=(len(l)-1):
+						temp+='--'
+				#print(temp,highestIndex[i],CTFeatures[highestIndex[i]],goodCoefficients[ highestIndex[i]   ])
+				integerName=CTFeatures[highestIndex[i]].replace('x','')
+				fw.write(str(highestIndex[i])+'\t'+str('%0.2f'%meanCoefficients[ highestIndex[i]] ) +'\t'+temp+' ('+ integerName  +')\n')
+				coeff_of_CT.append(meanCoefficients[ highestIndex[i]])
+				name_of_the_coeff.append(temp)
+				std_of_coeff.append(stdCoefficients[ highestIndex[i]])
+
+
+			fig,ax=plt.subplots( figsize=(5,3))
+			xx=range(len(coeff_of_CT))
+			yy=np.zeros((len(coeff_of_CT)))
+			ax.errorbar(xx, coeff_of_CT, yerr=std_of_coeff,fmt='o',capsize=5)
+			ax.plot(xx,yy,'k-',linewidth=0.2)
+			ax.set_ylabel('value of coeff.')
+			ax.set_xlabel('name of the coeff.')
+			titlename=nameOfCellType[goodPredictedCellType[k]]+', id = '+str(goodPredictedCellType[k])+', confusion score = {0:.3f}'.format(a[goodPredictedCellType[k]]) +'$\pm$'+str('%0.3f'%b[goodPredictedCellType[k]])
+			ax.set_title(titlename,fontsize=7)
+
+
+			ax.set_xticks(xx)
+			ax.set_xticklabels(name_of_the_coeff)
+			for tick in ax.get_xticklabels():
+				tick.set_rotation(90)
+
+
+			fig.tight_layout()
+			fig.savefig(filename+'/Rank'+str(k)+'_'+nameOfCellType[goodPredictedCellType[k]],dpi=300)
+			fig.clf()
 
 
 
@@ -436,47 +492,67 @@ def main():
 		f=open(inputdir+'BiologicalNameOfCT.dat')
 		nameOfCellType={}
 		for line in f:
-		    l=line.split('\t')
+		    l=line[0:-1].split('\t')
 		    nameOfCellType[int(l[0])]=l[1]
 
-		no_of_times_to_run_logistic_regression=1
+		#no_of_times_to_run_logistic_regression=1
+		n_repeats=20
+		K_fold=5
+		confusion_cutoff=0.2
+		coeff_cutoff=25
 		strategy='L1_ovr'
-		#strategy='L2_ovr'
+		#strategy='L2_multi'
 		#strategy='elasticnet_multi'
 
-		maindir=inputdir+'LRF_'+strategy+'/'
+		lambda123=[1]
+		#radiusList=[50,100,150,200,250,300]
+		radiusList=[25,50,75,100]
+
+		BothLinearAndCrossTerms=2# if both linear and crossterms then 2, if only linearterm then 1
+
+
+
+
+
+
+
+
+
+		if BothLinearAndCrossTerms==1:
+			maindir=inputdir+'LRF_'+strategy+'_linear/'
+		else:
+			maindir=inputdir+'LRF_'+strategy+'_cross/'
 		answer=os.path.isdir(maindir)
 		if answer==True:
 			pass
 		else:
-			os.mkdir(maindir)
-
-		lambda123=[1,0.1,10]
-		BothLinearAndCrossTerms=1# if both linear and crossterms then 2, if only linearterm then 1
-		#lambda123=[1]
-
-		#radiusList=[50,100,150,200,250,300]
-		radiusList=[50,75,100,150]
+			os.mkdir(maindir)	
 		for i in radiusList:
-		    print('\n\n\n')
-		    for j in lambda123:
-    			start_time = time.time()
-    			radius=i
-    			lambda_c=j
-    			fw=open(maindir+'prediction_'+str(lambda_c)+'_'+ str(radius)+'.dat','w')
-    			print('\n\nRadius and c',radius,lambda_c,'\n')
-    			fw.write('\nRadius = '+ str(radius)+  '\t lambda C = '+ str(lambda_c) + '\n')
-    			neighborhoodClass,target,inputFeatures=readdata(radius,inputdir)
-    			cmn,coef,classes,CTFeatures,x_test,x_train,predicted_probs,fpr, tpr, roc_auc,scorecalc=model_log_regression(no_of_times_to_run_logistic_regression,neighborhoodClass,target,lambda_c,strategy,BothLinearAndCrossTerms)
+			print('\n\n\n')
+			for j in lambda123:
+				start_time = time.time()
+				radius=i
+				lambda_c=j
+				fw=open(maindir+'prediction_R'+str(radius)+'_C'+ str(lambda_c)+'.dat','w')
+				print('\n\nRadius and c',radius,lambda_c,'\n')
+				fw.write('\nRadius = '+ str(radius)+  '\t lambda C = '+ str(lambda_c) + '\n')
+				neighborhoodClass,target,inputFeatures=readdata(radius,inputdir)
+				cmn,coef,comp_score,cmn_std,coef_std,comp_score_std,classes,CTFeatures,x_test,x_train,predicted_probs,fpr, tpr, roc_auc=model_log_regression(K_fold, n_repeats,neighborhoodClass,target,lambda_c,strategy,BothLinearAndCrossTerms)
 
-    			np.savetxt(maindir+'matrix_coefficients_'+str(lambda_c)+'_'+ str(radius)+'.dat', coef,fmt='%0.6f',delimiter=',')
-    			np.savetxt(maindir+'matrix_confusion_'+str(lambda_c)+'_'+ str(radius)+'.dat', cmn,fmt='%0.6f',delimiter=',')
-    			np.savetxt(maindir+'matrix_score_'+str(lambda_c)+'_'+ str(radius)+'.dat', scorecalc,fmt='%0.4f',delimiter=',')
+				np.savetxt(maindir+'matrix_avg_coefficients_R'+str(radius)+'_C'+ str(lambda_c)+'.dat', coef,fmt='%0.6f',delimiter=',')
+				np.savetxt(maindir+'matrix_avg_confusion_R'+str(radius)+'_C'+ str(lambda_c)+'.dat', cmn,fmt='%0.6f',delimiter=',')
 
+				score=np.array([comp_score, comp_score_std]).T
 
-    			find_interacting_cell_types(cmn,coef,CTFeatures,nameOfCellType,fw)
-    			plot_results(maindir,2,3,nameOfCellType,radius,lambda_c,cmn,coef,classes,CTFeatures,x_test,x_train,predicted_probs,inputFeatures,inputdir,fpr, tpr, roc_auc)
-    			finish_time=time.time()
-    			fw.write('\n\nTotal time to compute = '+ str(finish_time-start_time)+'\n')
+				np.savetxt(maindir+'matrix_std_coefficients_R'+str(radius)+'_C'+ str(lambda_c)+'.dat', coef_std,fmt='%0.6f',delimiter=',')
+				np.savetxt(maindir+'matrix_std_confusion_R'+str(radius)+'_C'+ str(lambda_c)+'.dat', cmn_std,fmt='%0.6f',delimiter=',')
+				np.savetxt(maindir+'matrix_score_R'+str(radius)+'_C'+ str(lambda_c)+'.dat',score ,fmt='%0.4f',delimiter=',')
+
+				find_interacting_cell_types(cmn,coef,cmn_std,coef_std,confusion_cutoff,coeff_cutoff,CTFeatures,nameOfCellType,fw,maindir+'/TopCoeff_R'+str(radius)+'_C'+str(lambda_c))
+
+				plot_results(maindir,2,3,nameOfCellType,radius,lambda_c,cmn,coef,classes,CTFeatures,x_test,x_train,predicted_probs,inputFeatures,inputdir,fpr, tpr, roc_auc)
+				finish_time=time.time()
+
+				fw.write('\n\nTotal time to compute = '+ str(finish_time-start_time)+'\n')
 
 main()
