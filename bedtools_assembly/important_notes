@@ -8,9 +8,16 @@ Bed file is 0-based corrdinate
 
 
 
-Use exact coordinate as gff file in bed format gives wrong fasta sequence 
-bedtools getfasta -fi Mus_musculus.GRCm39.dna.primary_assembly.fa -bed exon.dat -s -name -fo exon.fa
-bedtools getfasta -fi Mus_musculus.GRCm39.dna.primary_assembly.fa -bed intron.dat -s -name -fo intron.fa
+Use exact coordinate as gff file gives wrong fasta sequence 
+To correct this use following command 
+
+start_pos_in_bed_format=str(int(l[3])-1)
+where l[3] is the start coordinate in gff3 files. 
+
+
+
+bedtools getfasta -fi Mus_musculus.GRCm39.dna.primary_assembly.fa -bed exon.bed -s -name -fo exon.fa
+bedtools getfasta -fi Mus_musculus.GRCm39.dna.primary_assembly.fa -bed intron.bed -s -name -fo intron.fa
 
 
 s tag is important to get the strand specific sequences
