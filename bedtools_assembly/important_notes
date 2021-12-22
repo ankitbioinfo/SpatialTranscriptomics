@@ -13,4 +13,4 @@ bedtools getfasta -fi Mus_musculus.GRCm39.dna.primary_assembly.fa -bed exon.dat 
 bedtools getfasta -fi Mus_musculus.GRCm39.dna.primary_assembly.fa -bed intron.dat -s -name -fo intron.fa
 
 
-s tage is important for strand specific sequences
+s tag is important to get the strand specific sequences
