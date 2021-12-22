@@ -21,3 +21,7 @@ bedtools getfasta -fi Mus_musculus.GRCm39.dna.primary_assembly.fa -bed intron.be
 
 
 s tag is important to get the strand specific sequences
+
+Following tools from bedops also can be used to convert from gff3 format to bed format. But I can do it in python also. So lets not use it. 
+
+gff2bed <gencode.vM28.annotation.gff3> gencode.bed
