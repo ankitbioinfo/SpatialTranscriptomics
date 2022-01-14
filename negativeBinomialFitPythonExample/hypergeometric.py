@@ -28,9 +28,9 @@ oddsr, p = fisher_exact(table, alternative='two-sided')
 print('two sideded',p)
 
 oddsr, p = fisher_exact(table, alternative='greater')
-print('greater',p)
+print('greater',p) # if x=3 then greater means 3 or greater than 3
 
 oddsr, p = fisher_exact(table, alternative='less')
-print('less',p)
+print('less',p) # if x=3 then less means 3 or less than 3 
 
 print(table)
