@@ -1,3 +1,10 @@
+ad_spatial.write_h5ad('saveall')
+
+adata=sc.read_h5ad("saveall")
+sc.pl.umap(adata, color=["leiden","louvain"], wspace=0.4,show=True, save='_spatial_leiden_louvain.png')
+
+
+
 # SpatialTranscriptomics
 
 To create the input images for transcriptome analysis. 
