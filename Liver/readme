@@ -13,4 +13,8 @@ single cell data
 4) 
 
 merging 
-1) dfd
+1) MoreDataForLogReg/liver_clustering_on_tangram_mapping/sc_genes_spatial_cell.h5ad
+2) sc_genes_spatial_cell.csv 
+
+clustering 
+1) MoreDataForLogReg/liver_clustering_on_tangram_mapping/filter_genes_tangram_mapping.csv
