@@ -10,7 +10,6 @@ single cell data
 1) spatial_module/processed_vizgen_liver/mapping/countTable_mouseStSt/matrix.mtx.gz
 2) sc_liver_data.h5ad
 3) sc_liver_data_downsample.h5ad
-4) 
 
 merging 
 1) MoreDataForLogReg/liver_clustering_on_tangram_mapping/sc_genes_spatial_cell.h5ad
