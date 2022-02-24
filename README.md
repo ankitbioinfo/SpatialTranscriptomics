@@ -7,6 +7,15 @@ sc.pl.umap(adata, color=["leiden","louvain"], wspace=0.4,show=True, save='_spati
 
 # SpatialTranscriptomics
 
+
+conda create -n starfish "python=3.7"
+conda activate starfish
+pip install scikit-image==0.15.0
+pip install napari 
+
+
+
+
 To create the input images for transcriptome analysis. 
 
 Run appropriate pipeline either projection one or direct 3d tif files. 
