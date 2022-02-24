@@ -8,10 +8,10 @@ sc.pl.umap(adata, color=["leiden","louvain"], wspace=0.4,show=True, save='_spati
 # SpatialTranscriptomics
 
 
-conda create -n starfish "python=3.7"
-conda activate starfish
-pip install scikit-image==0.15.0
-pip install napari 
+1)conda create -n starfish "python=3.7"
+2)conda activate starfish
+3)pip install scikit-image==0.15.0
+4)pip install napari 
 
 
 
