@@ -1,3 +1,4 @@
 
 
+object = pbmc, assay = "RNA"
 'counts_RNA.csv' is original count matrix 
