@@ -2,3 +2,11 @@
 
 object = pbmc, assay = "RNA"
 'counts_RNA.csv' is original count matrix 
+
+
+object = pbmc, slot = "counts")),
+'counts.csv' looks like corrected count matrix but integer (non negative)
+
+
+object = pbmc, assay = "SCT")),
+'sct.csv',   looks like corrected count matrix but floates (non negative)
