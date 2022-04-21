@@ -6,6 +6,7 @@ object = pbmc, assay = "RNA"
 
 object = pbmc, slot = "counts")),
 'counts.csv' looks like corrected count matrix but integer (non negative)
+This is similar to umi_corrected.csv
 
 
 object = pbmc, assay = "SCT")),
