@@ -1,4 +1,8 @@
 
+a=sc.read_h5ad('sc_liver_data.h5ad')
+b=a.X.toarray()
+df=pd.DataFrame(data=b.transpose(), index=a.var_names , columns=a.obs_names)
+df.to_csv("sc_liver_data_ori.csv")
 
 spatial data 
 
