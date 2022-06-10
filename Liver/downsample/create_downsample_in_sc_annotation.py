@@ -13,10 +13,17 @@ genename=new_adata.var_names.to_numpy()
 
 print('gene',len(genename))
 
+
+
+
 mat=new_adata.X.toarray()
 umi=np.sum(mat,axis=1)
 print('umi',len(umi))
 umi=np.reshape(umi,(len(umi),1))
+
+df=pd.DataFrame(data=mat.transpose(), index=genename , columns=cellname)
+df.to_csv("sc_liver_data_downsample.csv")
+
 
 
 annot=pd.read_csv('./../annot_mouseStStAll.csv')
