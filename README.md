@@ -8,6 +8,16 @@ https://github.com/alexcwsmith/singleCellTools/blob/master/ACWS_scanPy_MASTER.py
 # SpatialTranscriptomics
 
 
+n_jobs=-1
+#find 5 neighbors for each data query 
+k_index_2 = cKDTree(data).query(x=data, k=5, n_jobs=n_jobs)[1]
+#find all the neighbors for the give radius 
+k_index_1 = cKDTree(data).query_ball_point(x=data, r=radius)
+
+
+
+
+
 1)conda create -n starfish "python=3.7"
 2)conda activate starfish
 3)pip install scikit-image==0.15.0
@@ -15,11 +25,7 @@ https://github.com/alexcwsmith/singleCellTools/blob/master/ACWS_scanPy_MASTER.py
 
 
 
-n_jobs=-1
-#find 5 neighbors for each data query 
-k_index_2 = cKDTree(data).query(x=data, k=5, n_jobs=n_jobs)[1]
-#find all the neighbors for the give radius 
-k_index_1 = cKDTree(data).query_ball_point(x=data, r=radius)
+
 
 
 To create the input images for transcriptome analysis. 
