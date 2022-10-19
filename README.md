@@ -6,12 +6,12 @@ and includes UTR sequences also.  <br/>
 UTR includes ['IG_C_gene', 'IG_D_gene', 'IG_J_gene', 'IG_V_gene', 'TR_C_gene', 'TR_V_gene', 'protein_coding']
 
 For FZD4 protein coding genes following information are present<br/>
-CDS	  (<-- seven spaces)          86954801	86955085<br/>
-CDS	            86951142	86952470<br/>
-five_prime_UTR	86955086	86955395<br/>
-three_prime_UTR	86945679	86951141<br/>
-exon	        86954801	86955395<br/>
-exon	        86945679	86952470<br/>
+CDS	            869.54801	869.55085<br/>
+CDS	            869.51142	869.52470<br/>
+five_prime_UTR	869.55086	869.55395<br/>
+three_prime_UTR	869.45679	869.51141<br/>
+exon	        869.54801	869.55395<br/>
+exon	        869.45679	869.52470<br/>
 
 
 # adata 
