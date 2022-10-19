@@ -1,3 +1,14 @@
+# CDS, UTR, Transcripts and Exons 
+
+CDS is without UTR and includes ['IG_C_gene', 'IG_D_gene', 'IG_J_gene', 'IG_V_gene', 'TR_C_gene', 'TR_D_gene', 'TR_J_gene', 'TR_V_gene', 'protein_coding']
+
+Exons is protein_coding as well several others ['IG_C_gene', 'IG_C_pseudogene', 'IG_D_gene', 'IG_J_gene', 'IG_J_pseudogene', 'IG_V_gene', 'IG_V_pseudogene', 'IG_pseudogene', 'Mt_rRNA', 'Mt_tRNA', 'TEC', 'TR_C_gene', 'TR_D_gene', 'TR_J_gene', 'TR_J_pseudogene', 'TR_V_gene', 'TR_V_pseudogene', 'artifact', 'lncRNA', 'miRNA', 'misc_RNA', 'processed_pseudogene', 'pseudogene', 'rRNA', 'rRNA_pseudogene', 'ribozyme', 'sRNA', 'scRNA', 'scaRNA', 'snRNA', 'snoRNA', 'transcribed_processed_pseudogene', 'transcribed_unitary_pseudogene', 'transcribed_unprocessed_pseudogene', 'translated_processed_pseudogene', 'translated_unprocessed_pseudogene', 'unitary_pseudogene', 'unprocessed_pseudogene', 'vault_RNA']
+and includes UTR sequences also.  
+
+UTR includes ['IG_C_gene', 'IG_D_gene', 'IG_J_gene', 'IG_V_gene', 'TR_C_gene', 'TR_V_gene', 'protein_coding']
+
+
+
 ad_spatial.write_h5ad('saveall')
 
 adata=sc.read_h5ad("saveall")
