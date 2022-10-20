@@ -25,3 +25,7 @@ s tag is important to get the strand specific sequences
 Following tools from bedops also can be used to convert from gff3 format to bed format. But I can do it in python also. So lets not use it. 
 
 gff2bed <gencode.vM28.annotation.gff3> gencode.bed
+
+
+merge coordinates in gff file (not in bed file) 
+bedtools merge -i sort.gff -c 4,7,9 -o count,collapse,collapse
