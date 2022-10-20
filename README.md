@@ -18,6 +18,10 @@ exon	        869.45679	869.52470<br/>
 
 So exon contains the UTR regions but CDS does not. The best is to design the probes on ['IG_C_gene', 'IG_D_gene', 'IG_J_gene', 'IG_V_gene', 'TR_C_gene', 'TR_D_gene', 'TR_J_gene', 'TR_V_gene', 'protein_coding'] exon sequences.  
 
+UTR regions of gene NPB and ANAPC11 is overlay so don't include these regions. 
+
+
+
 # adata 
 
 ad_spatial.write_h5ad('saveall')
