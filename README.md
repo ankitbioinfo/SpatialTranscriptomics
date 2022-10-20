@@ -1,25 +1,3 @@
-# CDS, UTR, Transcripts and Exons 
-
-Genes are in different category ['IG_C_gene', 'IG_C_pseudogene', 'IG_D_gene', 'IG_J_gene', 'IG_J_pseudogene', 'IG_V_gene', 'IG_V_pseudogene', 'IG_pseudogene', 'Mt_rRNA', 'Mt_tRNA', 'TEC', 'TR_C_gene', 'TR_D_gene', 'TR_J_gene', 'TR_J_pseudogene', 'TR_V_gene', 'TR_V_pseudogene', 'artifact', 'lncRNA', 'miRNA', 'misc_RNA', 'processed_pseudogene', 'protein_coding', 'pseudogene', 'rRNA', 'rRNA_pseudogene', 'ribozyme', 'sRNA', 'scRNA', 'scaRNA', 'snRNA', 'snoRNA', 'transcribed_processed_pseudogene', 'transcribed_unitary_pseudogene', 'transcribed_unprocessed_pseudogene', 'translated_processed_pseudogene', 'translated_unprocessed_pseudogene', 'unitary_pseudogene', 'unprocessed_pseudogene', 'vault_RNA']
-
-
-CDS is without UTR and includes ['IG_C_gene', 'IG_D_gene', 'IG_J_gene', 'IG_V_gene', 'TR_C_gene', 'TR_D_gene', 'TR_J_gene', 'TR_V_gene', 'protein_coding']<br/>
-Exons is protein_coding as well several others ['IG_C_gene', 'IG_C_pseudogene', 'IG_D_gene', 'IG_J_gene', 'IG_J_pseudogene', 'IG_V_gene', 'IG_V_pseudogene', 'IG_pseudogene', 'Mt_rRNA', 'Mt_tRNA', 'TEC', 'TR_C_gene', 'TR_D_gene', 'TR_J_gene', 'TR_J_pseudogene', 'TR_V_gene', 'TR_V_pseudogene', 'artifact', 'lncRNA', 'miRNA', 'misc_RNA', 'processed_pseudogene', 'pseudogene', 'rRNA', 'rRNA_pseudogene', 'ribozyme', 'sRNA', 'scRNA', 'scaRNA', 'snRNA', 'snoRNA', 'transcribed_processed_pseudogene', 'transcribed_unitary_pseudogene', 'transcribed_unprocessed_pseudogene', 'translated_processed_pseudogene', 'translated_unprocessed_pseudogene', 'unitary_pseudogene', 'unprocessed_pseudogene', 'vault_RNA']
-and includes UTR sequences also.  <br/>
-UTR includes ['IG_C_gene', 'IG_D_gene', 'IG_J_gene', 'IG_V_gene', 'TR_C_gene', 'TR_V_gene', 'protein_coding']
-
-For FZD4 protein coding genes following information are present<br/>
-CDS	            869.54801	869.55085<br/>
-CDS	            869.51142	869.52470<br/>
-five_prime_UTR	869.55086	869.55395<br/>
-three_prime_UTR	869.45679	869.51141<br/>
-exon	        869.54801	869.55395<br/>
-exon	        869.45679	869.52470<br/>
-
-So exon contains the UTR regions but CDS does not. The best is to design the probes on ['IG_C_gene', 'IG_D_gene', 'IG_J_gene', 'IG_V_gene', 'TR_C_gene', 'TR_D_gene', 'TR_J_gene', 'TR_V_gene', 'protein_coding'] exon sequences.  
-
-UTR regions of gene NPB and ANAPC11 is overlay so don't include these regions. 
-
 
 
 # adata 
