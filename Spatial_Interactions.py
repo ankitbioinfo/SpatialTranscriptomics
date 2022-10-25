@@ -27,6 +27,8 @@ import os
 import random
 import warnings
 import time
+import pickle
+
 warnings.filterwarnings('ignore')
 #export PYTHONWARNINGS='ignore:Multiprocessing-backed parallel loops:UserWarning'
 os.environ["PYTHONWARNINGS"] = "ignore::UserWarning"
@@ -41,6 +43,7 @@ def create_directory(outputFolder):
         pass
     else:
         os.mkdir(outputFolder)
+
 
 
 def findNeighbors_in_given_radius(location,radius):
@@ -107,6 +110,56 @@ def findNeighbors_in_given_radius(location,radius):
 
     return newneig
 
+def create_spatial_CT_feature_matrix(radius,PP,louvain,noct,fraction_CT,saveSpatial):
+    #radius=100
+    #tri=Delaunay(PP)
+    #neighbors = find_DT_neighbors (tri,PP)
+    neighbors=findNeighbors_in_given_radius(PP,radius)
+    n=len(neighbors)
+    #print("total neighbor",n )
+
+    outputFilename=saveSpatial+'normalized_spatial_neighbors_'+str(radius)+'.dat'
+
+    fw=open(outputFilename,'w')
+    expectedNeighbors=[]
+    #print(noct)
+    for i in range(n):
+        cell1=i
+        CT1=louvain[i,0]
+        V=neighbors[i]
+        CT2=np.zeros(len(noct),dtype=float)
+        for j in range(len(V)):
+            name=louvain[V[j],0]
+            try:
+                CT2[name]+=1.0
+            except KeyError:
+                pass
+        fw.write(str(cell1)+'\t'+str(CT1))
+        expected=np.array(fraction_CT)*np.sum(CT2)
+        tt=CT1
+        #print(np.concatenate(np.array(celltype[key]),CT2))
+        expectedNeighbors.append(np.concatenate([np.asarray([tt]),CT2]))
+        #print(expectedNeighbors)
+        CT2=CT2/expected   #np.sum(CT2) #np.linalg.norm(CT2)
+        for j in CT2:
+            fw.write('\t'+'%0.5f'%j)
+        fw.write('\n')
+
+    expectedNeighbors=np.array(expectedNeighbors)
+
+    M=[]
+    for i in range(len(noct)):
+        a=np.where(expectedNeighbors[:,0]==i)
+        b=np.where(expectedNeighbors[:,0]!=i)
+        #print('a',len(a[0]),len(b[0]))
+        myCT=np.mean(expectedNeighbors[a[0],1:],axis=0)
+        remainCT=np.mean(expectedNeighbors[b[0],1:],axis=0)
+        M.append(myCT/remainCT)
+        #print(i,M[i])
+
+
+    M=np.array(M)
+    return M, neighbors
 
 
 
@@ -117,7 +170,7 @@ def euclidean_dist(p1,p2):
 
 
 
-def reading_data(positionFilename,clusterFilename,celltypeFilename,saveSpatial):
+def reading_data(positionFilename,clusterFilename,celltypeFilename,saveSpatial,delimiter):
     CTname=[]
     with open(celltypeFilename,'r') as f:
         cont = f.read()
@@ -125,7 +178,7 @@ def reading_data(positionFilename,clusterFilename,celltypeFilename,saveSpatial):
         CTname=[]
         CTid=[]
         for i in range(len(lines)):
-            l=lines[i].split('\t')
+            l=lines[i].split(delimiter)
             if len(l)>1:
                 name=l[1].replace('/','_')
                 name=name.replace(' ','_')
@@ -135,6 +188,7 @@ def reading_data(positionFilename,clusterFilename,celltypeFilename,saveSpatial):
                 name=name.replace('(','')
                 name=name.replace('+','p')
                 name=name.replace('-','n')
+                name=name.replace('.','')
                 CTname.append(name)
                 CTid.append(int(l[0]))
 
@@ -173,7 +227,13 @@ def reading_data(positionFilename,clusterFilename,celltypeFilename,saveSpatial):
         index.append(temp[id])
 
     PP=points[index,:]
-    louvain=louvain[:,1:]
+    print(len(PP),len(points))
+
+    #f=open('input_vizgen_liver_zcorrectCT/data/temp.dat','w')
+    #for i in range(len(PP)):
+    #    f.write(str(index[i])+'\t'+str(PP[i,1])+'\t'+str(PP[i,1])+'\n')
+    #f.close()
+
 
     location_cellname2int={}
     location_int2cellname={}
@@ -228,8 +288,8 @@ def reading_data(positionFilename,clusterFilename,celltypeFilename,saveSpatial):
         new_CT_id[noct[good_index_cell_counts[i]]]=i
     #print('a',np.unique(louvain))
     for i in range(len(louvain)):
-        value=louvain[i,0]
-        louvain[i,0]=new_CT_id[value]
+        value=louvain[i,1]
+        louvain[i,1]=new_CT_id[value]
         #print(value,louvain[i])
 
     fw=open(saveSpatial+'BiologicalNameOfCT.dat','w')
@@ -240,62 +300,13 @@ def reading_data(positionFilename,clusterFilename,celltypeFilename,saveSpatial):
             fw.write(str(i)+'\t'+name+'\t'+str('%0.4f'%value)+'\n')
     fw.close()
 
+    louvainWithBarcodeId=louvain
+    louvain=louvain[:,1:]
 
-    return PP, louvain, noct,fraction_CT
-
-
-
-def create_spatial_CT_feature_matrix(radius,PP,louvain,noct,fraction_CT,saveSpatial):
-    #radius=100
-    #tri=Delaunay(PP)
-    #neighbors = find_DT_neighbors (tri,PP)
-    neighbors=findNeighbors_in_given_radius(PP,radius)
-    n=len(neighbors)
-    #print("total neighbor",n )
-
-    outputFilename=saveSpatial+'normalized_spatial_neighbors_'+str(radius)+'.dat'
+    return PP, louvain, noct,fraction_CT,louvainWithBarcodeId
 
 
-    fw=open(outputFilename,'w')
-    expectedNeighbors=[]
-    #print(noct)
-    for i in range(n):
-        cell1=i
-        CT1=louvain[i,0]
-        V=neighbors[i]
-        CT2=np.zeros(len(noct),dtype=float)
-        for j in range(len(V)):
-            name=louvain[V[j],0]
-            try:
-                CT2[name]+=1.0
-            except KeyError:
-                pass
-        fw.write(str(cell1)+'\t'+str(CT1))
-        expected=np.array(fraction_CT)*np.sum(CT2)
-        tt=CT1
-        #print(np.concatenate(np.array(celltype[key]),CT2))
-        expectedNeighbors.append(np.concatenate([np.asarray([tt]),CT2]))
-        #print(expectedNeighbors)
-        CT2=CT2/expected   #np.sum(CT2) #np.linalg.norm(CT2)
-        for j in CT2:
-            fw.write('\t'+'%0.5f'%j)
-        fw.write('\n')
 
-    expectedNeighbors=np.array(expectedNeighbors)
-
-    M=[]
-    for i in range(len(noct)):
-        a=np.where(expectedNeighbors[:,0]==i)
-        b=np.where(expectedNeighbors[:,0]!=i)
-        #print('a',len(a[0]),len(b[0]))
-        myCT=np.mean(expectedNeighbors[a[0],1:],axis=0)
-        remainCT=np.mean(expectedNeighbors[b[0],1:],axis=0)
-        M.append(myCT/remainCT)
-        #print(i,M[i])
-
-
-    M=np.array(M)
-    return M
 
 
 
@@ -539,7 +550,7 @@ def model_log_regression(K_fold,n_repeats,neighborhoodClass,target,lambda_c,stra
                 flag=0
                 print('Inverse of lambda regularization found', lambda_c)
     #'''
-    #lambda_c=0.001953125
+    #lambda_c=0.000244140625
 
 
 
@@ -711,7 +722,7 @@ def find_interacting_cell_types(cmn,coef,cmn_std,coef_std,confusion_cutoff,coeff
 
 
             fig.tight_layout()
-            fig.savefig(filename+'/Rank'+str(k+1)+'_'+nameOfCellType[goodPredictedCellType[k]],dpi=300)
+            fig.savefig(filename+'/Rank'+str(k+1)+'_'+nameOfCellType[goodPredictedCellType[k]],bbox_inches='tight',dpi=300)
             fig.clf()
 
 
@@ -734,6 +745,8 @@ def run_logistic_regression_on_spatial_features(inputdir,n_repeats,K_fold,coeff_
         fw=open(maindir+'prediction_R'+str(radius)+'.dat','w')
         fw.write('\nRadius = '+ str(radius)  + '\n')
         fname=maindir+'save_numpy_array_'+str(radius)+'.npz'
+
+
         flag=1
         if os.path.isfile(fname):
             filesize = os.path.getsize(fname)
